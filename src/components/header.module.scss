@@ -112,7 +112,13 @@
         transition: 0.3s ease all;
         position: relative;
         
-
+        &:hover{
+            color:$primary;
+        }
+        @include breakpoint(md) {
+            display: none;
+        }
     }
+   
     }
 }
