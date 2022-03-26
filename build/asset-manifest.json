@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_resposive_navbar/static/css/main.7b4eb7c1.css",
+    "main.js": "/react_resposive_navbar/static/js/main.e05598de.js",
+    "index.html": "/react_resposive_navbar/index.html",
+    "main.7b4eb7c1.css.map": "/react_resposive_navbar/static/css/main.7b4eb7c1.css.map",
+    "main.e05598de.js.map": "/react_resposive_navbar/static/js/main.e05598de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b4eb7c1.css",
+    "static/js/main.e05598de.js"
+  ]
+}
