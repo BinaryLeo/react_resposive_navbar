@@ -19,13 +19,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        z-index: 2;
+        position: relative;
+        z-index: 100;
+
         &__logo {
             font-size: 2rem;
             font-weight: bold;
             text-decoration: none;
             color: $light;
         }
+
         &__nav {
             top: 0;
             right: 100%;
@@ -40,8 +43,9 @@
             text-align: center;
             background: rgba($dark, 0.9);
             backdrop-filter: blur(2px);
-            transform: translateX(0);
+            transform: translate(0);
             transition: 0.3s ease transform;
+
             @include breakpoint(md) {
                 transform: none;
                 flex-direction: row;
@@ -52,9 +56,9 @@
             }
             ul {
                 list-style: none;
+                padding: 0;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: column;
                 margin-bottom: $spacing-lg;
                 @include breakpoint(md) {
                     flex-direction: row;
@@ -63,62 +67,74 @@
                     margin-right: calc(0.5rem + #{$spacing-md});
                 }
                 li {
-                    text-decoration: none;
-                    color: inherit;
-                    padding: 0.75rem 1.25rem;
-                    border-radius: $borderRadius;
-                    transition: 0.3s ease all;
-                    &:hover {
-                        background: rgba($light, 0.1);
+                    &:not(:last-child) {
+                        margin-bottom: $spacing-lg;
+                        @include breakpoint(md) {
+                            margin-bottom: 0;
+                            margin-right: $spacing-md;
+                        }
                     }
-                    &:active{
-                        border-radius:calc(#{$borderRadius} + 6px);
-                        background: linear-gradient(rgba($light, 0.1), rgba($light, 0.2));
+                    a {
+                        text-decoration: none;
+                        color: inherit;
+                        padding: 0.75rem 1.25rem;
+                        border-radius: $borderRadius;
+                        transition: 0.3s ease all;
+
+                        &:hover {
+                            background: rgba($light, 0.1);
+                        }
+                        &:active {
+                            border-radius: calc(#{$borderRadius} + 6px);
+                            background: linear-gradient(rgba($light, 0.1), rgba($light, 0.2));
+                        }
                     }
                 }
             }
-        }
-    }
-    button{
-        cursor: pointer;
-        outline: none;
-        padding:0.75rem 1.25rem;
-        border-radius: $borderRadius;
-        font-size: 1rem;
-        font-family: inherit;
-        background: $primary;
-        color:$dark;
-        border: 1px solid transparent;
-        transition: 0.3s ease all;
-    &:hover{
-        border-color: $primary;
-        background: rgba($primary,0.1);
-        color:$primary;
-    }
-    &:active{
-        border-color: $primary;
-        background: linear-gradient(rgba($primary, 0.1), rgba($primary, 0.2));
-        color:$primary;
-    }
+            button {
+                cursor: pointer;
+                outline: none;
+                padding: 0.75rem 1.25rem;
+                border-radius: $borderRadius;
+                font-size: 1rem;
+                font-family: inherit;
+                background: $primary;
+                color: $dark;
+                border: 1px solid transparent;
+                transition: 0.3s ease all;
 
-    &.isMenu{
-        transform: translateX(100%);
-    }
-    &__toggle{
-        cursor: pointer;
-        display:flex;
-        align-items:center;
-        font-size: 2rem;
-        transition: 0.3s ease all;
-        position: relative;
-        
-        &:hover{
-            color:$primary;
+                &:hover {
+                    border-color: $primary;
+                    background: rgba($primary, 0.1);
+                    color: $primary;
+                }
+                &:active {
+                    border-color: $primary;
+                    background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
+                    color: $primary;
+                }
+            }
+
+            &.isMenu {
+                transform: translate(100%);
+            }
         }
-        @include breakpoint(md) {
-            display: none;
+
+        &__toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            transition: 0.3s ease all;
+            position: relative;
+
+            &:hover {
+                color: $primary;
+            }
+
+            @include breakpoint(md) {
+                display: none;
+            }
         }
-    }
-   
     }
 }
